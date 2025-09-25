@@ -1,3 +1,28 @@
+Hi team,
+
+As part of our longer-term roadmap, our team will eventually be taking over responsibility for the automation portion of Illumio containers in addition to container ringfencing. To be clear — this is not happening right now. At this stage, I’m gathering background and documentation to make the eventual transition smooth for everyone.
+
+To help with this, I’d like to set up some time with you to understand:
+
+Where the current automation code/configs live (repos, files, Helm values, etc.)
+
+How the automation is structured today (scope, pipelines, manual vs. automated steps)
+
+Label mapping logic (Kubernetes metadata → Illumio labels)
+
+Cluster-specific configs and how infra rules are managed
+
+Logging, visibility, and how failures are handled
+
+Known risks/gaps or lessons learned so far
+
+I’ll be using a structured list of questions during our discussion to capture details consistently (repo structure, ownership, CI/CD triggers, versioning, etc.). My goal is not to disrupt ongoing work, but to build a clear picture of how things are set up today so when the transition does happen, we’re prepared.
+
+Please let me know a good time that works for you all to walk through this together. In the meantime, if there are any docs, diagrams, or KBs you think I should review first, I’d appreciate the pointers.
+
+Thanks in advance for the partnership — looking forward to learning from what you’ve built so far.
+
+
 Questions for Illumio Container Automation Handover
 1. Repository & File Location
 

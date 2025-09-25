@@ -1,0 +1,110 @@
+Questions for Illumio Container Automation Handover
+1. Repository & File Location
+
+Where does the automation code live (GitHub, Azure DevOps, internal Git, etc.)?
+
+Is there a dedicated repo for container automation or shared with other Illumio automation (VM, enforcement, labeling)?
+
+What’s the folder structure (e.g., illumio-k8s/labels/, helm/, scripts/)?
+
+Are there templates/values.yaml files committed for different clusters (DV/QA/PD)?
+
+How are secrets (API keys, org IDs) managed — config files, K8s secrets, or external vault?
+
+2. Automation Scope
+
+Which parts of container lifecycle are automated today?
+
+Label mapping from K8s → Illumio (env/app/role/loc)?
+
+Helm chart deployment of Kubelink + C-VEN?
+
+Enforcement rollout (Visibility → Low → Full)?
+
+Rule/ruleset creation for cluster infra?
+
+Label drift correction?
+
+What is still manual (engineers log into PCE, apply rules, etc.)?
+
+3. Pipeline & Process
+
+Is automation run manually (on demand) or via a CI/CD pipeline?
+
+If CI/CD:
+
+Which pipeline (Azure DevOps, GitHub Actions, Jenkins)?
+
+What triggers runs (commit, CRQ, schedule)?
+
+How do we track success/failures (logs, alerts)?
+
+Is there a promotion model (DV → QA → PD) for automation changes?
+
+How do engineers test changes safely before production?
+
+4. Labeling & Mapping
+
+How do we map Kubernetes metadata to Illumio labels?
+
+Namespace → env?
+
+Workload name → app?
+
+Other annotations → role/loc?
+
+Where is this mapping logic defined (script, Helm chart, ConfigMap)?
+
+Do we have exceptions (special workloads that need custom labels)?
+
+Is there a fallback behavior if labels don’t match (default role/location)?
+
+5. Cluster-Specific Setup
+
+Do we maintain separate configs for DV/QA/PD clusters, or a single templated set?
+
+How are mandatory infra rules applied for each cluster?
+
+How are new clusters bootstrapped (is there a documented runbook)?
+
+6. Versioning & Upgrades
+
+How do we track which Illumio for Kubernetes chart version each cluster is on?
+
+How are Helm values updated when Illumio releases new versions (manual or automated)?
+
+Do we validate PCE version compatibility before upgrades?
+
+7. Logging & Visibility
+
+Do automation scripts generate logs? Where are they stored (Splunk, log server, local)?
+
+Do we have a way to audit changes (who ran automation, what labels/policies were applied)?
+
+Is there a status dashboard for container automation health?
+
+8. Ownership & Contacts
+
+Who are the primary engineers responsible for Illumio container automation today?
+
+Is there a Slack/Teams channel dedicated to automation discussions?
+
+Are there ServiceNow KBs or Confluence pages documenting the workflows?
+
+9. Risks & Gaps
+
+What common failures do we see (labels missing, pods not discovered, policy gaps)?
+
+How are failures currently remediated (manual fixes, rollback script)?
+
+Where do we see the biggest gaps in automation today?
+
+What’s the roadmap — e.g., moving more into CLAS mode automation, or adding ruleset automation?
+
+10. Next Steps for You
+
+Ask if there’s a sandbox cluster where you can run/test automation safely.
+
+Request examples of recent commits/CRQs to see how changes are made.
+
+Identify if automation is meant to scale across all clusters or if each cluster still has unique handling.

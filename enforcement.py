@@ -14,8 +14,8 @@ from datetime import datetime
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Replace with your actual org_id, API key, and token
-api_user = "api_191fd6f8a4487b920"
-api_key = "c14080fd65c49b9818748be21f2661423d27aed6a2514fcf8bb8229123b2f6e5"
+api_user = ""
+api_key = ""
 fqdn = "us-scp14.illum.io"
 port = "443"
 org = "3801148"
